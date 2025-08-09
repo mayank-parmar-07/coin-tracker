@@ -1,0 +1,415 @@
+2025-08-07 22:13:13,383 - ERROR - Usage: python ethereum_transaction_tracker.py <wallet_address>
+2025-08-07 22:13:13,383 - ERROR - Example: python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-07 22:13:35,743 - ERROR - Invalid Ethereum address format: xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-07 22:13:35,744 - ERROR - Failed to export transaction history.
+2025-08-07 22:14:00,730 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-07 22:14:00,730 - INFO - Fetching normal transactions...
+2025-08-07 22:14:00,730 - WARNING - No Etherscan API key provided. Using public endpoint with rate limits.
+2025-08-07 22:14:02,048 - ERROR - Error fetching normal transactions: NOTOK
+2025-08-07 22:14:02,049 - INFO - Fetching internal transactions...
+2025-08-07 22:14:02,049 - WARNING - No Etherscan API key provided. Internal transactions may be limited.
+2025-08-07 22:14:03,691 - ERROR - Error fetching internal transactions: NOTOK
+2025-08-07 22:14:03,695 - INFO - Fetching ERC-20 token transfers...
+2025-08-07 22:14:03,695 - WARNING - No Etherscan API key provided. ERC-20 transfers may be limited.
+2025-08-07 22:14:05,123 - ERROR - Error fetching ERC-20 transfers: NOTOK
+2025-08-07 22:14:05,128 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-07 22:14:05,128 - WARNING - No Etherscan API key provided. ERC-721 transfers may be limited.
+2025-08-07 22:14:06,450 - ERROR - Error fetching ERC-721 transfers: NOTOK
+2025-08-07 22:14:06,451 - INFO - Fetching ERC-1155 transfers...
+2025-08-07 22:14:06,451 - WARNING - No Etherscan API key provided. ERC-1155 transfers may be limited.
+2025-08-07 22:14:07,679 - ERROR - Error fetching ERC-1155 transfers: NOTOK
+2025-08-07 22:14:07,680 - WARNING - No transactions found for this address.
+2025-08-07 22:14:07,680 - ERROR - Failed to export transaction history.
+2025-08-07 22:14:24,621 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-07 22:14:24,621 - INFO - Fetching normal transactions...
+2025-08-07 22:14:26,013 - INFO - Fetching internal transactions...
+2025-08-07 22:14:27,548 - ERROR - Error fetching internal transactions: No transactions found
+2025-08-07 22:14:27,551 - INFO - Fetching ERC-20 token transfers...
+2025-08-07 23:56:23,222 - INFO - Using etherscan connector
+2025-08-07 23:56:23,222 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-07 23:56:23,222 - INFO - Fetching normal transactions...
+2025-08-07 23:56:24,705 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-07 23:56:25,991 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-07 23:56:27,201 - ERROR - Error fetching normal transactions: No transactions found
+2025-08-07 23:56:27,201 - INFO - Fetching internal transactions...
+2025-08-07 23:56:31,462 - ERROR - Error fetching internal transactions: No transactions found
+2025-08-07 23:56:31,463 - INFO - Fetching ERC-20 token transfers...
+2025-08-07 23:56:35,348 - ERROR - Error fetching ERC-20 transfers: No transactions found
+2025-08-07 23:56:35,348 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-07 23:56:39,557 - ERROR - Error fetching ERC-721 transfers: No transactions found
+2025-08-07 23:56:39,557 - INFO - Fetching ERC-1155 transfers...
+2025-08-07 23:56:43,332 - ERROR - Error fetching ERC-1155 transfers: No transactions found
+2025-08-07 23:56:43,333 - WARNING - No transactions found for this address and epoch range.
+2025-08-07 23:56:43,333 - ERROR - Failed to export transaction history.
+2025-08-07 23:57:38,182 - INFO - Using etherscan connector
+2025-08-07 23:57:38,183 - INFO - Fetching transaction history for address: 0xdadB0d80178819F2319190D340ce9A924f783711 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-07 23:57:38,183 - INFO - Fetching normal transactions...
+2025-08-07 23:57:39,448 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-07 23:57:40,811 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-07 23:57:42,344 - INFO - Filtered 35 transactions from 39 total
+2025-08-07 23:57:42,345 - INFO - Fetching internal transactions...
+2025-08-07 23:57:46,316 - INFO - Filtered 21 internal transactions from 23 total
+2025-08-07 23:57:46,317 - INFO - Fetching ERC-20 token transfers...
+2025-08-07 23:57:50,306 - ERROR - Error fetching ERC-20 transfers: No transactions found
+2025-08-07 23:57:50,306 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-07 23:57:54,431 - ERROR - Error fetching ERC-721 transfers: No transactions found
+2025-08-07 23:57:54,431 - INFO - Fetching ERC-1155 transfers...
+2025-08-07 23:57:58,395 - ERROR - Error fetching ERC-1155 transfers: No transactions found
+2025-08-07 23:57:58,403 - INFO - Exported 56 transactions to ethereum_transactions_0xdadB0d80178819F2319190D340ce9A924f783711_20250807_235758.csv
+2025-08-07 23:57:58,404 - INFO - 
+Transaction Summary for 0xdadB0d80178819F2319190D340ce9A924f783711 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50:
+2025-08-07 23:57:58,404 - INFO - Total transactions: 56
+2025-08-07 23:57:58,404 - INFO -   ETH Transfer: 35
+2025-08-07 23:57:58,404 - INFO -   Internal Transfer: 21
+2025-08-07 23:57:58,404 - INFO - 
+Transaction history exported to: ethereum_transactions_0xdadB0d80178819F2319190D340ce9A924f783711_20250807_235758.csv
+2025-08-07 23:57:59,516 - INFO - Using etherscan connector
+2025-08-07 23:57:59,517 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-07 23:57:59,517 - INFO - Fetching normal transactions...
+2025-08-07 23:58:01,503 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-07 23:58:02,717 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-07 23:58:03,961 - ERROR - Error fetching normal transactions: No transactions found
+2025-08-07 23:58:03,962 - INFO - Fetching internal transactions...
+2025-08-07 23:58:07,822 - ERROR - Error fetching internal transactions: No transactions found
+2025-08-07 23:58:07,822 - INFO - Fetching ERC-20 token transfers...
+2025-08-07 23:58:11,700 - ERROR - Error fetching ERC-20 transfers: No transactions found
+2025-08-07 23:58:11,700 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-07 23:58:15,905 - ERROR - Error fetching ERC-721 transfers: No transactions found
+2025-08-07 23:58:15,905 - INFO - Fetching ERC-1155 transfers...
+2025-08-07 23:58:20,109 - ERROR - Error fetching ERC-1155 transfers: No transactions found
+2025-08-07 23:58:20,109 - WARNING - No transactions found for this address and epoch range.
+2025-08-07 23:58:20,109 - ERROR - Failed to export transaction history.
+2025-08-08 00:01:18,370 - INFO - Using etherscan connector
+2025-08-08 00:01:18,371 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-08 00:01:18,371 - INFO - Fetching normal transactions...
+2025-08-08 00:01:19,627 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-08 00:01:21,074 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-08 00:01:22,506 - ERROR - Error fetching normal transactions: No transactions found
+2025-08-08 00:01:22,506 - INFO - Fetching internal transactions...
+2025-08-08 00:01:26,499 - ERROR - Error fetching internal transactions: No transactions found
+2025-08-08 00:01:26,499 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:01:30,300 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:01:30,300 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:01:34,392 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:01:34,392 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:01:38,278 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:01:38,279 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:01:38,279 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:01:41,502 - INFO - Using etherscan connector
+2025-08-08 00:01:41,502 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-08 00:01:41,502 - INFO - Fetching normal transactions...
+2025-08-08 00:01:42,801 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-08 00:01:44,216 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-08 00:01:45,548 - ERROR - Error fetching normal transactions: No transactions found
+2025-08-08 00:01:45,548 - INFO - Fetching internal transactions...
+2025-08-08 00:01:49,337 - ERROR - Error fetching internal transactions: No transactions found
+2025-08-08 00:01:49,337 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:01:53,080 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:01:53,081 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:01:56,757 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:01:56,757 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:02:00,451 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:02:00,451 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:02:00,451 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:24:15,962 - INFO - Using etherscan connector
+2025-08-08 00:24:15,962 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:50:50 to 2025-08-07 23:55:50
+2025-08-08 00:24:15,962 - INFO - Fetching normal transactions...
+2025-08-08 00:24:17,370 - INFO - Start epoch: 1754590850 (2025-08-07 23:50:50) (block ~23090935)
+2025-08-08 00:24:18,910 - INFO - End epoch: 1754591150 (2025-08-07 23:55:50) (block ~23090960)
+2025-08-08 00:24:20,445 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:24:20,445 - INFO - Fetching internal transactions...
+2025-08-08 00:24:24,740 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:24:24,741 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:24:28,459 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:24:28,459 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:24:32,218 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:24:32,219 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:24:36,280 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:24:36,280 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:24:36,280 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:25:18,791 - ERROR - Usage: python ethereum_transaction_tracker.py <wallet_address> [start_epoch] [end_epoch]
+2025-08-08 00:25:18,791 - ERROR - Examples:
+2025-08-08 00:25:18,791 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-08 00:25:18,791 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200
+2025-08-08 00:25:18,791 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200 1735689600
+2025-08-08 00:25:26,242 - ERROR - Usage: python ethereum_transaction_tracker.py <wallet_address> [start_epoch] [end_epoch]
+2025-08-08 00:25:26,243 - ERROR - Examples:
+2025-08-08 00:25:26,243 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-08 00:25:26,243 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200
+2025-08-08 00:25:26,243 - ERROR -   python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200 1735689600
+2025-08-08 00:26:32,546 - INFO - Using etherscan connector
+2025-08-08 00:26:32,547 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2024-08-08 14:50:23 to 2024-08-08 15:50:23
+2025-08-08 00:26:32,547 - INFO - Fetching normal transactions...
+2025-08-08 00:26:33,974 - INFO - Start epoch: 1723108823 (2024-08-08 14:50:23) (block ~20482931)
+2025-08-08 00:26:35,408 - INFO - End epoch: 1723112423 (2024-08-08 15:50:23) (block ~20483229)
+2025-08-08 00:26:36,943 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:26:36,944 - INFO - Fetching internal transactions...
+2025-08-08 00:26:41,245 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:26:41,246 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:26:45,331 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:26:45,331 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:26:49,129 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:26:49,129 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:26:52,922 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:26:52,922 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:26:52,922 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:27:12,610 - INFO - Using etherscan connector
+2025-08-08 00:27:12,610 - INFO - Fetching transaction history for address: 0xdadB0d80178819F2319190D340ce9A924f783711 from 2024-08-08 14:50:23 to 2024-08-08 15:50:23
+2025-08-08 00:27:12,611 - INFO - Fetching normal transactions...
+2025-08-08 00:27:14,166 - INFO - Start epoch: 1723108823 (2024-08-08 14:50:23) (block ~20482931)
+2025-08-08 00:27:15,546 - INFO - End epoch: 1723112423 (2024-08-08 15:50:23) (block ~20483229)
+2025-08-08 00:27:16,760 - INFO - No normal transactions found for address 0xdadB0d80178819F2319190D340ce9A924f783711 in the specified time range
+2025-08-08 00:27:16,760 - INFO - Fetching internal transactions...
+2025-08-08 00:27:20,976 - INFO - No internal transactions found for address 0xdadB0d80178819F2319190D340ce9A924f783711 in the specified time range
+2025-08-08 00:27:20,976 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:27:25,070 - INFO - No ERC-20 transfers found for address 0xdadB0d80178819F2319190D340ce9A924f783711 in the specified time range
+2025-08-08 00:27:25,070 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:27:28,722 - INFO - No ERC-721 transfers found for address 0xdadB0d80178819F2319190D340ce9A924f783711 in the specified time range
+2025-08-08 00:27:28,723 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:27:32,749 - INFO - No ERC-1155 transfers found for address 0xdadB0d80178819F2319190D340ce9A924f783711 in the specified time range
+2025-08-08 00:27:32,749 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:27:32,749 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:28:42,518 - INFO - Using etherscan connector
+2025-08-08 00:28:42,518 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-01-01 05:30:00 to 2025-01-01 06:30:00
+2025-08-08 00:28:42,518 - INFO - Fetching normal transactions...
+2025-08-08 00:28:43,796 - INFO - Start epoch: 1735689600 (2025-01-01 05:30:00) (block ~21525890)
+2025-08-08 00:28:45,042 - INFO - End epoch: 1735693200 (2025-01-01 06:30:00) (block ~21526190)
+2025-08-08 00:28:46,284 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:28:46,284 - INFO - Fetching internal transactions...
+2025-08-08 00:28:50,088 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:28:50,089 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:28:53,847 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:28:53,848 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:28:58,250 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:28:58,250 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:29:02,320 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:29:02,320 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:29:02,320 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:30:19,973 - INFO - Using etherscan connector
+2025-08-08 00:30:19,974 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-01-01 05:30:00 to 2025-01-01 06:30:00
+2025-08-08 00:30:19,974 - INFO - Fetching normal transactions...
+2025-08-08 00:30:21,503 - INFO - Start epoch: 1735689600 (2025-01-01 05:30:00) (block ~21525890)
+2025-08-08 00:30:23,039 - INFO - End epoch: 1735693200 (2025-01-01 06:30:00) (block ~21526190)
+2025-08-08 00:30:24,464 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:30:24,465 - INFO - Fetching internal transactions...
+2025-08-08 00:30:28,078 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:30:28,079 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:30:31,938 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:30:31,938 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:30:35,652 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:30:35,652 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:30:40,040 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:30:40,040 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:30:40,040 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:31:12,459 - INFO - Using etherscan connector
+2025-08-08 00:31:12,460 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-08 17:50:00 to 2025-08-08 18:50:00
+2025-08-08 00:31:12,460 - INFO - Fetching normal transactions...
+2025-08-08 00:31:13,713 - INFO - Start epoch: 1754655600 (2025-08-08 17:50:00) (block ~146221300)
+2025-08-08 00:31:15,057 - INFO - End epoch: 1754659200 (2025-08-08 18:50:00) (block ~146221600)
+2025-08-08 00:31:16,264 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:31:16,264 - INFO - Fetching internal transactions...
+2025-08-08 00:31:20,393 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:31:20,394 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:31:24,795 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:31:24,795 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:31:28,523 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:31:28,523 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:31:32,361 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:31:32,362 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:31:32,362 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:32:07,307 - INFO - Using etherscan connector
+2025-08-08 00:32:07,308 - INFO - Fetching transaction history for address: 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-08 17:50:00 to 2025-08-08 18:50:00
+2025-08-08 00:32:07,308 - INFO - Fetching normal transactions...
+2025-08-08 00:32:08,610 - INFO - Start epoch: 1754655600 (2025-08-08 17:50:00) (block ~146221300)
+2025-08-08 00:32:09,928 - INFO - End epoch: 1754659200 (2025-08-08 18:50:00) (block ~146221600)
+2025-08-08 00:32:11,169 - INFO - No normal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:32:11,170 - INFO - Fetching internal transactions...
+2025-08-08 00:32:15,182 - INFO - No internal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:32:15,183 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:32:19,142 - INFO - No ERC-20 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:32:19,143 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:32:23,056 - INFO - No ERC-721 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:32:23,056 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:32:26,951 - INFO - No ERC-1155 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:32:26,951 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:32:26,952 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:33:53,430 - INFO - Using etherscan connector
+2025-08-08 00:33:53,431 - INFO - Fetching transaction history for address: 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-11 12:20:00 to 2025-08-11 13:40:00
+2025-08-08 00:33:53,431 - INFO - Fetching normal transactions...
+2025-08-08 00:33:54,816 - INFO - Start epoch: 1754895000 (2025-08-11 12:20:00) (block ~146241250)
+2025-08-08 00:33:56,133 - INFO - End epoch: 1754899800 (2025-08-11 13:40:00) (block ~146241650)
+2025-08-08 00:33:57,484 - INFO - No normal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:33:57,485 - INFO - Fetching internal transactions...
+2025-08-08 00:34:01,866 - INFO - No internal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:01,867 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:34:06,173 - INFO - No ERC-20 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:06,173 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:34:39,479 - INFO - Using etherscan connector
+2025-08-08 00:34:39,480 - INFO - Fetching transaction history for address: 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 23:30:34 to 2025-08-08 00:34:14
+2025-08-08 00:34:39,480 - INFO - Fetching normal transactions...
+2025-08-08 00:34:40,881 - INFO - Start epoch: 1754589634 (2025-08-07 23:30:34) (block ~23090834)
+2025-08-08 00:34:42,212 - INFO - End epoch: 1754593454 (2025-08-08 00:34:14) (block ~23091149)
+2025-08-08 00:34:43,455 - INFO - Filtered 2 transactions from 2 total
+2025-08-08 00:34:43,456 - INFO - Fetching internal transactions...
+2025-08-08 00:34:47,527 - INFO - No internal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:47,528 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:34:51,431 - INFO - No ERC-20 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:51,432 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:34:55,728 - INFO - No ERC-721 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:55,728 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:34:59,734 - INFO - No ERC-1155 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 00:34:59,747 - INFO - Exported 2 transactions to ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_003459.csv
+2025-08-08 00:34:59,747 - INFO - 
+Transaction Summary for 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 23:30:34 to 2025-08-08 00:34:14:
+2025-08-08 00:34:59,747 - INFO - Total transactions: 2
+2025-08-08 00:34:59,747 - INFO -   ETH Transfer: 2
+2025-08-08 00:34:59,747 - INFO - 
+Transaction history exported to: ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_003459.csv
+2025-08-08 00:37:03,339 - INFO - Using etherscan connector
+2025-08-08 00:37:03,339 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-01-01 05:30:00 to 2025-01-01 06:30:00
+2025-08-08 00:37:03,339 - INFO - Fetching normal transactions...
+2025-08-08 00:37:04,672 - INFO - Start epoch: 1735689600 (2025-01-01 05:30:00) (block ~21525890)
+2025-08-08 00:37:05,865 - INFO - End epoch: 1735693200 (2025-01-01 06:30:00) (block ~21526190)
+2025-08-08 00:37:07,156 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:37:07,157 - INFO - Fetching internal transactions...
+2025-08-08 00:37:11,647 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:37:11,647 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:37:15,846 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:37:15,846 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:37:19,888 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:37:19,888 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:37:24,038 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:37:24,038 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:37:24,038 - INFO - No transactions found for the specified address and time range.
+2025-08-08 00:52:49,080 - INFO - Using etherscan connector
+2025-08-08 00:52:49,081 - INFO - Using etherscan connector
+2025-08-08 00:52:49,081 - INFO - Using etherscan connector
+2025-08-08 00:52:49,082 - INFO - Using etherscan connector
+2025-08-08 00:52:49,082 - WARNING - No transactions found to export.
+2025-08-08 00:52:49,083 - INFO - Using etherscan connector
+2025-08-08 00:52:49,084 - INFO - Using etherscan connector
+2025-08-08 00:52:49,084 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6
+2025-08-08 00:52:49,084 - INFO - Fetching normal transactions...
+2025-08-08 00:52:49,084 - INFO - Fetching internal transactions...
+2025-08-08 00:52:49,084 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:52:49,084 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:52:49,084 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:52:49,085 - INFO - Using etherscan connector
+2025-08-08 00:52:49,085 - ERROR - Invalid Ethereum address format: invalid_address
+2025-08-08 00:52:49,085 - INFO - Using etherscan connector
+2025-08-08 00:52:49,086 - ERROR - Invalid start epoch: invalid_epoch. Must be a positive integer.
+2025-08-08 00:52:49,086 - INFO - Using etherscan connector
+2025-08-08 00:52:49,086 - ERROR - Start epoch cannot be after end epoch.
+2025-08-08 00:52:49,086 - INFO - Using etherscan connector
+2025-08-08 00:52:49,087 - INFO - Using etherscan connector
+2025-08-08 00:52:49,088 - INFO - Using etherscan connector
+2025-08-08 00:58:56,784 - INFO - Using etherscan connector
+2025-08-08 00:58:56,785 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-01-01 05:30:00 to 2025-01-01 06:30:00
+2025-08-08 00:58:56,785 - INFO - Fetching normal transactions...
+2025-08-08 00:59:01,274 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:59:01,274 - INFO - Fetching internal transactions...
+2025-08-08 00:59:05,780 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:59:05,780 - INFO - Fetching ERC-20 token transfers...
+2025-08-08 00:59:10,178 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:59:10,178 - INFO - Fetching ERC-721 NFT transfers...
+2025-08-08 00:59:14,589 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:59:14,589 - INFO - Fetching ERC-1155 transfers...
+2025-08-08 00:59:18,577 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 00:59:18,577 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 00:59:18,577 - INFO - No transactions found for the specified address and time range.
+2025-08-08 01:10:19,511 - INFO - Using etherscan connector
+2025-08-08 01:10:19,512 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-01-01 05:30:00 to 2025-01-01 06:30:00
+2025-08-08 01:10:19,512 - INFO - Fetching normal transactions...
+2025-08-08 01:10:23,995 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:10:23,995 - INFO - Found 0 normal transactions
+2025-08-08 01:10:23,995 - INFO - Fetching internal transactions...
+2025-08-08 01:10:27,811 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:10:27,811 - INFO - Found 0 internal transactions
+2025-08-08 01:10:27,812 - INFO - Fetching erc-20 token transfers...
+2025-08-08 01:10:31,882 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:10:31,882 - INFO - Found 0 erc-20 token transfers
+2025-08-08 01:10:31,882 - INFO - Fetching erc-721 nft transfers...
+2025-08-08 01:10:36,491 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:10:36,492 - INFO - Found 0 erc-721 nft transfers
+2025-08-08 01:10:36,492 - INFO - Fetching erc-1155 transfers...
+2025-08-08 01:10:40,991 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:10:40,992 - INFO - Found 0 erc-1155 transfers
+2025-08-08 01:10:40,992 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 01:10:40,992 - INFO - No transactions found for the specified address and time range.
+2025-08-08 01:11:05,963 - INFO - Using etherscan connector
+2025-08-08 01:11:05,964 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 23:30:34 to 2025-08-08 00:30:34
+2025-08-08 01:11:05,964 - INFO - Fetching normal transactions...
+2025-08-08 01:11:10,178 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:10,180 - INFO - Found 0 normal transactions
+2025-08-08 01:11:10,180 - INFO - Fetching internal transactions...
+2025-08-08 01:11:14,785 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:14,785 - INFO - Found 0 internal transactions
+2025-08-08 01:11:14,785 - INFO - Fetching erc-20 token transfers...
+2025-08-08 01:11:19,394 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:19,394 - INFO - Found 0 erc-20 token transfers
+2025-08-08 01:11:19,394 - INFO - Fetching erc-721 nft transfers...
+2025-08-08 01:11:24,104 - INFO - No ERC-721 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:24,104 - INFO - Found 0 erc-721 nft transfers
+2025-08-08 01:11:24,104 - INFO - Fetching erc-1155 transfers...
+2025-08-08 01:11:27,858 - INFO - No ERC-1155 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:27,859 - INFO - Found 0 erc-1155 transfers
+2025-08-08 01:11:27,859 - WARNING - No transactions found for this address and epoch range.
+2025-08-08 01:11:27,859 - INFO - No transactions found for the specified address and time range.
+2025-08-08 01:11:52,830 - INFO - Using etherscan connector
+2025-08-08 01:11:52,830 - INFO - Fetching transaction history for address: 0xa39b189482f984388a34460636fea9eb181ad1a6 from 2025-08-07 22:30:34 to 2025-08-08 00:34:14
+2025-08-08 01:11:52,830 - INFO - Fetching normal transactions...
+2025-08-08 01:11:57,486 - INFO - No normal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:11:57,486 - INFO - Found 0 normal transactions
+2025-08-08 01:11:57,486 - INFO - Fetching internal transactions...
+2025-08-08 01:12:01,702 - INFO - No internal transactions found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:12:01,703 - INFO - Found 0 internal transactions
+2025-08-08 01:12:01,703 - INFO - Fetching erc-20 token transfers...
+2025-08-08 01:12:06,191 - INFO - No ERC-20 transfers found for address 0xa39b189482f984388a34460636fea9eb181ad1a6 in the specified time range
+2025-08-08 01:12:06,191 - INFO - Found 0 erc-20 token transfers
+2025-08-08 01:12:06,191 - INFO - Fetching erc-721 nft transfers...
+2025-08-08 01:12:19,649 - INFO - Using etherscan connector
+2025-08-08 01:12:19,650 - INFO - Fetching transaction history for address: 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 22:30:34 to 2025-08-08 00:34:14
+2025-08-08 01:12:19,650 - INFO - Fetching normal transactions...
+2025-08-08 01:12:23,390 - INFO - Found 3 normal transactions
+2025-08-08 01:12:23,390 - INFO - Fetching internal transactions...
+2025-08-08 01:12:27,688 - INFO - No internal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 01:12:27,688 - INFO - Found 0 internal transactions
+2025-08-08 01:12:27,688 - INFO - Fetching erc-20 token transfers...
+2025-08-08 01:12:31,998 - INFO - No ERC-20 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 01:12:31,998 - INFO - Found 0 erc-20 token transfers
+2025-08-08 01:12:31,998 - INFO - Fetching erc-721 nft transfers...
+2025-08-08 01:12:36,645 - INFO - No ERC-721 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 01:12:36,645 - INFO - Found 0 erc-721 nft transfers
+2025-08-08 01:12:36,645 - INFO - Fetching erc-1155 transfers...
+2025-08-08 01:12:41,111 - INFO - No ERC-1155 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 01:12:41,112 - INFO - Found 0 erc-1155 transfers
+2025-08-08 01:12:41,127 - INFO - Exported 3 transactions to ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_011241.csv
+2025-08-08 01:12:41,127 - INFO - 
+Transaction Summary for 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 22:30:34 to 2025-08-08 00:34:14:
+2025-08-08 01:12:41,127 - INFO - Total transactions: 3
+2025-08-08 01:12:41,127 - INFO -   ETH Transfer: 3
+2025-08-08 01:12:41,127 - INFO - 
+Transaction history exported to: ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_011241.csv
+2025-08-08 17:07:02,298 - INFO - Using etherscan connector
+2025-08-08 17:07:02,298 - INFO - Fetching transaction history for address: 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 22:30:34 to 2025-08-08 00:34:14
+2025-08-08 17:07:02,298 - INFO - Fetching normal transactions...
+2025-08-08 17:07:09,604 - INFO - Found 3 normal transactions
+2025-08-08 17:07:09,604 - INFO - Fetching internal transactions...
+2025-08-08 17:07:13,704 - INFO - No internal transactions found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 17:07:13,704 - INFO - Found 0 internal transactions
+2025-08-08 17:07:13,704 - INFO - Fetching erc-20 token transfers...
+2025-08-08 17:07:18,004 - INFO - No ERC-20 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 17:07:18,005 - INFO - Found 0 erc-20 token transfers
+2025-08-08 17:07:18,005 - INFO - Fetching erc-721 nft transfers...
+2025-08-08 17:07:22,006 - INFO - No ERC-721 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 17:07:22,006 - INFO - Found 0 erc-721 nft transfers
+2025-08-08 17:07:22,006 - INFO - Fetching erc-1155 transfers...
+2025-08-08 17:07:26,091 - INFO - No ERC-1155 transfers found for address 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 in the specified time range
+2025-08-08 17:07:26,092 - INFO - Found 0 erc-1155 transfers
+2025-08-08 17:07:26,100 - INFO - Exported 3 transactions to ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_170726.csv
+2025-08-08 17:07:26,100 - INFO - 
+Transaction Summary for 0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86 from 2025-08-07 22:30:34 to 2025-08-08 00:34:14:
+2025-08-08 17:07:26,100 - INFO - Total transactions: 3
+2025-08-08 17:07:26,100 - INFO -   ETH Transfer: 3
+2025-08-08 17:07:26,100 - INFO - 
+Transaction history exported to: ethereum_transactions_0x48319f97E5Da1233c21c48b80097c0FB7a20Ff86_20250808_170726.csv
