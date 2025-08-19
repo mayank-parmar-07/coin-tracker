@@ -7,17 +7,21 @@ Parses raw transaction data into structured format.
 import logging
 from datetime import datetime
 from typing import Dict, Tuple
+from api_connectors import APIConnectorFactory
 
 class EthereumTransactionParser:
     """Parser for Ethereum transactions."""
     
-    def __init__(self, logger=None):
+    def __init__(self, logger=None, connector_type: str = 'etherscan'):
         self.logger = logger or logging.getLogger(__name__)
-        self.uniswap_addresses = {
-            '0x7a250d5630b4cf539739df2c5dacb4c659f2488d': 'Uniswap V2 Router',
-            '0xe592427a0aece92de3edee1f18e0157c05861564': 'Uniswap V3 Router',
-            '0x1f9840a85d5af5bf1d1762f925bdaddc4201f984': 'Uniswap Token',
-        }
+        self.connector_type = connector_type
+        
+        # Initialize API connector for token info
+        try:
+            self.api_connector = APIConnectorFactory.create_connector(connector_type)
+        except Exception as e:
+            self.logger.warning(f"Failed to create API connector for token info: {e}")
+            self.api_connector = None
     
     def parse_transaction(self, tx: Dict, internal: bool = False) -> Dict:
         """Parse a single transaction and return structured data."""
@@ -75,11 +79,6 @@ class EthereumTransactionParser:
             return "Internal Transfer"
         
         if tx.get('to') and tx['to'].startswith('0x'):
-            to_address = tx['to'].lower()
-            
-            if to_address in self.uniswap_addresses:
-                return "Uniswap Trade"
-            
             if tx.get('input') and tx['input'] != '0x':
                 input_data = tx['input'].lower()
                 if input_data.startswith('0xa9059cbb'):  # transfer(address,uint256)
@@ -90,18 +89,6 @@ class EthereumTransactionParser:
                     return "ERC-721 Transfer"
                 elif input_data.startswith('0xf242432a'):  # safeTransferFrom(address,address,uint256,uint256,bytes)
                     return "ERC-1155 Transfer"
-                elif input_data.startswith('0x38ed1739'):  # swapExactTokensForTokens
-                    return "Uniswap Trade"
-                elif input_data.startswith('0x7ff36ab5'):  # swapExactETHForTokens
-                    return "Uniswap Trade"
-                elif input_data.startswith('0x18cbafe5'):  # swapExactTokensForETH
-                    return "Uniswap Trade"
-                elif input_data.startswith('0x4a25d94a'):  # swapExactTokensForTokens (V3)
-                    return "Uniswap Trade"
-                elif input_data.startswith('0x5c11d795'):  # exactInputSingle
-                    return "Uniswap Trade"
-                elif input_data.startswith('0x414bf389'):  # exactInput
-                    return "Uniswap Trade"
                 else:
                     return "Contract Interaction"
         
@@ -132,6 +119,18 @@ class EthereumTransactionParser:
     
     def _get_token_info(self, contract_address: str) -> Tuple[str, str]:
         """Get token symbol and name from contract address."""
+        if not self.api_connector:
+            return 'Unknown', 'Unknown'
+        
+        try:
+            # Try to get token info from API connector
+            if hasattr(self.api_connector, 'get_token_info'):
+                symbol, name = self.api_connector.get_token_info(contract_address)
+                return symbol, name
+        except Exception as e:
+            self.logger.debug(f"Could not get token info from API: {e}")
+        
+        # Fallback to hardcoded common tokens
         token_symbols = {
             '0xa0b86a33e6441b8c4c8c0b8c4c8c0b8c4c8c0b8c': 'USDC',
             '0xdac17f958d2ee523a2206206994597c13d831ec7': 'USDT',

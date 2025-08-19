@@ -1,20 +1,44 @@
 # Ethereum Transaction History Tracker
 
-A Python script to retrieve and export Ethereum transaction history for a specified wallet address to a structured CSV file.
+A Python script to retrieve and export Ethereum transaction history for a specified wallet address to a structured CSV file with memory-efficient chunked processing.
 
 ## Features
 
-- **Multiple Transaction Types**: Supports ETH transfers, Internal transfers, ERC-20, ERC-721, ERC-1155 token transfers, and Uniswap trades
-- **Factory Pattern API Connectors**: Extensible connector system supporting multiple APIs
-- **Modular Persistor Design**: Pluggable persistence layer for different output formats
+- **Multiple Transaction Types**: Supports ETH transfers, Internal transfers, ERC-20, ERC-721, and ERC-1155 token transfers
 - **Memory-Efficient Chunking**: Process large time ranges in 15-minute chunks to reduce memory footprint
-- **Crash Recovery**: Resume processing from last successful chunk
-- **Configurable Logging**: Set log level via configuration file
+- **Factory Pattern API Connectors**: Extensible connector system supporting multiple APIs
+- **Modular Architecture**: Clean separation of concerns with reusable components
+- **Configurable Logging**: Set log level via configuration file with dual console/file output
 - **Structured Output**: Exports to CSV with standardized columns
+- **Automatic Time Range Handling**: Smart defaults for start/end epochs
 
 ## Architecture Highlights
 
-### 🏭 Factory Pattern for API Connectors
+### 🏗️ **Refactored Architecture (Latest)**
+
+The application has been refactored to use a clean, modular architecture:
+
+```python
+# Main tracker orchestrates the components
+tracker = EthereumTransactionTracker(connector_type="etherscan")
+
+# Uses TransactionPoller for efficient chunked processing
+poller = TransactionPoller(
+    connector_type="etherscan",
+    parser=parser,
+    persistor=persistor,
+    chunk_duration_minutes=15,  # Single 15-minute interval
+    logger=logger
+)
+```
+
+**Key Components:**
+- **`EthereumTransactionTracker`**: Main orchestrator and validation
+- **`TransactionPoller`**: Handles chunked API calls and data fetching
+- **`EthereumTransactionParser`**: Parses individual transactions
+- **`CSVPersistor`**: Handles CSV file operations
+
+### 🏭 **Factory Pattern for API Connectors**
 
 The application uses a **Factory Pattern** to support multiple API connectors seamlessly:
 
@@ -39,7 +63,7 @@ connector = APIConnectorFactory.create_connector("alchemy")
 - **AlchemyConnector**: High-performance with some limitations
 - **Future**: Easy to add Infura, QuickNode, or custom connectors
 
-### 📁 Modular Persistor Design
+### 📁 **Modular Persistor Design**
 
 The **Persistor Pattern** allows for different output formats and storage backends:
 
@@ -60,7 +84,7 @@ from utils.transaction_poller import CSVPersistor
 - **Testable**: Mock persistors for unit testing
 - **Scalable**: Different persistors for different use cases
 
-### 💾 Memory-Efficient Chunking Architecture
+### 💾 **Memory-Efficient Chunking Architecture**
 
 The **TransactionPoller** processes large time ranges in **15-minute chunks** to minimize memory usage:
 
@@ -70,6 +94,7 @@ poller = TransactionPoller(
     connector_type="etherscan",
     parser=parser,
     persistor=persistor,
+    chunk_duration_minutes=15,  # Single 15-minute interval
     logger=logger
 )
 
@@ -136,12 +161,17 @@ The `LOG_LEVEL` setting controls the verbosity of logging output:
 - **ERROR**: Error messages only
 - **CRITICAL**: Critical errors only
 
+**Logging Output:**
+- **Console**: Real-time logging to stdout
+- **File**: Persistent logging to `ethereum_tracker.log`
+- **Format**: `YYYY-MM-DD HH:MM:SS,SSS - LEVEL - MESSAGE`
+
 ## Usage
 
 ### Basic Usage
 
 ```bash
-# Get all transactions for an address
+# Get all transactions for an address (defaults to last 1 year)
 python ethereum_transaction_tracker.py <wallet_address>
 
 # Get transactions from a specific time
@@ -154,7 +184,7 @@ python ethereum_transaction_tracker.py <wallet_address> <start_epoch> <end_epoch
 ### Examples
 
 ```bash
-# Get all transactions
+# Get transactions for last year (default)
 python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6
 
 # Get transactions from January 1, 2024
@@ -164,20 +194,12 @@ python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a
 python ethereum_transaction_tracker.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200 1735689600
 ```
 
-### Transaction Poller (Recommended for Large Time Ranges)
+### Smart Defaults
 
-For processing large time ranges with automatic chunking and memory optimization:
-
-```bash
-# Poll transactions in 15-minute chunks
-python utils/poller_example.py <wallet_address> <start_epoch> <end_epoch>
-```
-
-```bash
-# Poller examples
-python utils/poller_example.py 0xa39b189482f984388a34460636fea9eb181ad1a6 1704067200 1735689600
-python utils/poller_example.py 0xfb50526f49894b78541b776f5aaefe43e3bd8590 1640995200 1672531200
-```
+The tracker now provides intelligent defaults:
+- **No end epoch**: Uses current time
+- **No start epoch**: Uses 1 year ago
+- **Automatic validation**: Ensures start < end
 
 ## Output Format
 
@@ -203,8 +225,9 @@ The script exports a CSV file with the following columns:
 - **ERC-20 Transfer**: Token transfers (USDC, USDT, etc.)
 - **ERC-721 Transfer**: NFT transfers
 - **ERC-1155 Transfer**: Multi-token transfers
-- **Uniswap Trade**: Uniswap V2/V3 swap transactions
 - **Contract Interaction**: Other smart contract interactions
+
+**Note**: Uniswap-specific logic has been removed for cleaner, more generic transaction classification.
 
 ## API Connectors
 
@@ -274,12 +297,13 @@ from utils.transaction_poller import TransactionPoller, CSVPersistor
 from utils.transaction_parser import EthereumTransactionParser
 
 # Create components
-parser = EthereumTransactionParser(logger)
+parser = EthereumTransactionParser(logger, connector_type="etherscan")
 persistor = CSVPersistor(output_dir=".", logger=logger)
 poller = TransactionPoller(
     connector_type="etherscan",
     parser=parser,
     persistor=persistor,
+    chunk_duration_minutes=15,  # Single 15-minute interval
     logger=logger
 )
 
@@ -314,9 +338,12 @@ output_file = poller.poll_transactions(
 
 The application uses structured logging with configurable levels:
 
-- **File Output**: Logs saved to `ethereum_tracker.log` and `poller.log`
+- **File Output**: Logs saved to `ethereum_tracker.log`
 - **Console Output**: Real-time logging to stdout
 - **Configurable Levels**: Set via `LOG_LEVEL` in `.env` file
+- **Dual Handlers**: Both console and file output simultaneously
+
+**Log File Location**: `ethereum_tracker.log` in the current working directory
 
 ## Examples with Time Ranges
 
@@ -332,11 +359,27 @@ python ethereum_transaction_tracker.py 0x... $(date -d '24 hours ago' +%s) $(dat
 python ethereum_transaction_tracker.py 0x... 1704067200 1711929600
 ```
 
-### Large Time Range (Use Poller)
+### Large Time Range (Automatic Chunking)
 ```bash
-# Get all transactions for 2023
-python utils/poller_example.py 0x... 1672531200 1704067200
+# Get all transactions for 2023 (automatically chunked)
+python ethereum_transaction_tracker.py 0x... 1672531200 1704067200
 ```
+
+## Recent Updates
+
+### v2.0 - Architecture Refactoring
+- **Simplified Polling**: Single 15-minute interval strategy
+- **Modular Components**: Clean separation of concerns
+- **Removed Uniswap Logic**: Generic transaction classification
+- **Improved Token Handling**: Better API integration for token info
+- **Cleaner Code**: Reduced from ~400 to ~200 lines
+- **Better Error Handling**: More robust error management
+
+### Key Improvements
+- **TransactionPoller Integration**: Uses the efficient chunked polling system
+- **Smart Defaults**: Automatic time range handling
+- **Cleaner Architecture**: Each component has a single responsibility
+- **Better Maintainability**: Changes only need to be made in one place
 
 ## Troubleshooting
 
@@ -354,7 +397,7 @@ python utils/poller_example.py 0x... 1672531200 1704067200
 3. **API Rate Limits**
    - Switch to a different API connector
    - Reduce the time range size
-   - Use the poller for large ranges
+   - The chunked approach helps with rate limiting
 
 4. **Log Level Issues**
    - Check `LOG_LEVEL` in `.env` file
@@ -367,3 +410,10 @@ Set `LOG_LEVEL=DEBUG` in your `.env` file for detailed logging:
 ```bash
 LOG_LEVEL=DEBUG
 ```
+
+### Memory Issues
+
+If processing very large time ranges:
+- The 15-minute chunking automatically handles memory efficiently
+- Each chunk is processed and persisted independently
+- Monitor the log file for progress updates
