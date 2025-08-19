@@ -20,6 +20,7 @@ import logging
 from datetime import datetime
 from typing import Optional
 from dotenv import load_dotenv
+from web3 import Web3
 from utils.transaction_poller import TransactionPoller, CSVPersistor
 from utils.transaction_parser import EthereumTransactionParser
 
@@ -57,6 +58,13 @@ class EthereumTransactionTracker:
         else:
             self.connector_type = os.getenv('CONNECTOR_TYPE', 'etherscan')
         
+        # Initialize Web3 instance only for Alchemy connector
+        if self.connector_type.lower() == 'alchemy':
+            self._w3 = Web3(Web3.HTTPProvider(os.getenv('ETHEREUM_RPC_URL')))
+            logger.info(f"Web3 connected: {self._w3.is_connected()}")
+        else:
+            self._w3 = None
+        
         # Initialize components
         self.parser = EthereumTransactionParser(logger, self.connector_type)
         self.persistor = CSVPersistor(".", logger)
@@ -69,7 +77,7 @@ class EthereumTransactionTracker:
         )
         
         logger.info(f"Using {self.connector_type} connector with 15-minute polling intervals")
-        
+    
     def validate_address(self, address: str) -> bool:
         """Validate Ethereum address format."""
         if self._w3:

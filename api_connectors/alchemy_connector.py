@@ -7,6 +7,7 @@ import requests
 import logging
 from typing import Dict, List, Optional, Tuple
 from .base_connector import APIConnector
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -36,16 +37,66 @@ class AlchemyConnector(APIConnector):
                 logger.error(f"API request failed: {e}")
                 return {'error': str(e)}
     
+    def _get_current_head_block(self) -> int:
+        """Get the current head block number."""
+        params = {
+            'id': 1,
+            'jsonrpc': '2.0',
+            'method': 'eth_blockNumber',
+            'params': []
+        }
+        
+        data = self._make_request('POST', params)
+        if 'result' in data:
+            return int(data['result'], 16)
+        else:
+            # Fallback to a reasonable default if we can't get the head block
+            logger.warning("Could not get current head block, using fallback")
+            return 23000000  # Conservative fallback
+    
+    def _get_block_range_from_epochs(self, start_epoch: Optional[int] = None, end_epoch: Optional[int] = None) -> Tuple[str, str]:
+        """Convert epoch timestamps to block numbers for API calls."""
+        if start_epoch is None and end_epoch is None:
+            logger.debug("No time range specified, using full block range: 0x0 to latest")
+            return '0x0', 'latest'
+        
+        # Get current head block
+        head_block = self._get_current_head_block()
+        
+        if start_epoch is None:
+            from_block = '0x0'
+        else:
+            # For start time, go back a reasonable number of blocks
+            # Use a conservative approach: assume 15 seconds per block
+            blocks_back = min((int(time.time()) - start_epoch) // 15, head_block)
+            from_block = hex(max(0, head_block - blocks_back))
+        
+        if end_epoch is None:
+            to_block = 'latest'
+        else:
+            # For end time, use current head block if it's in the future
+            if end_epoch > int(time.time()):
+                to_block = 'latest'
+            else:
+                # Calculate blocks back from current time
+                blocks_back = min((int(time.time()) - end_epoch) // 15, head_block)
+                to_block = hex(max(0, head_block - blocks_back))
+        
+        logger.debug(f"Time range {start_epoch} to {end_epoch} converted to block range: {from_block} to {to_block} (head: {hex(head_block)})")
+        return from_block, to_block
+    
     def get_normal_transactions(self, address: str, start_epoch: Optional[int] = None, end_epoch: Optional[int] = None) -> List[Dict]:
         """Get normal transactions for an address."""
+        from_block, to_block = self._get_block_range_from_epochs(start_epoch, end_epoch)
+        
         params = {
             'id': 1,
             'jsonrpc': '2.0',
             'method': 'alchemy_getAssetTransfers',
             'params': [
                 {
-                    'fromBlock': '0x0',
-                    'toBlock': 'latest',
+                    'fromBlock': from_block,
+                    'toBlock': to_block,
                     'category': ['external'],
                     'withMetadata': True,
                     'excludeZeroValue': False,
@@ -75,17 +126,6 @@ class AlchemyConnector(APIConnector):
                 }
                 transactions.append(tx)
             
-            if start_epoch or end_epoch:
-                filtered_transactions = []
-                for tx in transactions:
-                    tx_timestamp = int(tx.get('timeStamp', 0))
-                    if start_epoch and tx_timestamp < start_epoch:
-                        continue
-                    if end_epoch and tx_timestamp > end_epoch:
-                        continue
-                    filtered_transactions.append(tx)
-                return filtered_transactions
-            
             return transactions
         else:
             error_message = data.get('error', 'Unknown error')
@@ -104,14 +144,16 @@ class AlchemyConnector(APIConnector):
     
     def get_erc20_transfers(self, address: str, start_epoch: Optional[int] = None, end_epoch: Optional[int] = None) -> List[Dict]:
         """Get ERC-20 token transfers for an address."""
+        from_block, to_block = self._get_block_range_from_epochs(start_epoch, end_epoch)
+        
         params = {
             'id': 1,
             'jsonrpc': '2.0',
             'method': 'alchemy_getAssetTransfers',
             'params': [
                 {
-                    'fromBlock': '0x0',
-                    'toBlock': 'latest',
+                    'fromBlock': from_block,
+                    'toBlock': to_block,
                     'category': ['erc20'],
                     'withMetadata': True,
                     'excludeZeroValue': False,
@@ -145,17 +187,6 @@ class AlchemyConnector(APIConnector):
                 }
                 transactions.append(tx)
             
-            if start_epoch or end_epoch:
-                filtered_transactions = []
-                for tx in transactions:
-                    tx_timestamp = int(tx.get('timeStamp', 0))
-                    if start_epoch and tx_timestamp < start_epoch:
-                        continue
-                    if end_epoch and tx_timestamp > end_epoch:
-                        continue
-                    filtered_transactions.append(tx)
-                return filtered_transactions
-            
             return transactions
         else:
             error_message = data.get('error', 'Unknown error')
@@ -167,14 +198,16 @@ class AlchemyConnector(APIConnector):
     
     def get_erc721_transfers(self, address: str, start_epoch: Optional[int] = None, end_epoch: Optional[int] = None) -> List[Dict]:
         """Get ERC-721 NFT transfers for an address."""
+        from_block, to_block = self._get_block_range_from_epochs(start_epoch, end_epoch)
+        
         params = {
             'id': 1,
             'jsonrpc': '2.0',
             'method': 'alchemy_getAssetTransfers',
             'params': [
                 {
-                    'fromBlock': '0x0',
-                    'toBlock': 'latest',
+                    'fromBlock': from_block,
+                    'toBlock': to_block,
                     'category': ['erc721'],
                     'withMetadata': True,
                     'excludeZeroValue': False,
@@ -205,17 +238,6 @@ class AlchemyConnector(APIConnector):
                     'gasPrice': transfer.get('gasPrice', '0')
                 }
                 transactions.append(tx)
-            
-            if start_epoch or end_epoch:
-                filtered_transactions = []
-                for tx in transactions:
-                    tx_timestamp = int(tx.get('timeStamp', 0))
-                    if start_epoch and tx_timestamp < start_epoch:
-                        continue
-                    if end_epoch and tx_timestamp > end_epoch:
-                        continue
-                    filtered_transactions.append(tx)
-                return filtered_transactions
             
             return transactions
         else:
